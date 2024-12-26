@@ -2,7 +2,7 @@ all: build/firmware.elf
 
 build/main.o: main.s
 	@mkdir -p build
-	arm-none-eabi-as -mcpu=cortex-m4 -mthumb -o build/main.o main.s
+	arm-none-eabi-as -g -mcpu=cortex-m4 -mthumb -o build/main.o main.s
 
 build/firmware.elf: linker.ld build/main.o
 	arm-none-eabi-ld -T linker.ld -o build/firmware.elf build/main.o
